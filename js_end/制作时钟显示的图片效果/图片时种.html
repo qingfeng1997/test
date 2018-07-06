@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>图片时钟</title>
+
+<script>
+
+window.onload = function () {
+    //获取节点
+	var oBody = document.body;
+	var oP = document.getElementById('time');
+	var aImg = document.getElementsByTagName('img');
+	 
+	setInterval( fnTime, 1000 );
+	
+	fnTime ();
+	
+	function fnTime () {
+		var myTime = new Date();          // 实例化时钟对象
+		var iHours = myTime.getHours();   //获取当前的小时
+		var iMin = myTime.getMinutes();   //获取当前的分钟
+		var iSec = myTime.getSeconds();   //获取当前的秒
+		var str = toTwo(iHours)+toTwo(iMin)+toTwo(iSec);  
+	    console.log(str);     // 获取当前的时 ， 分  ， 秒 并合并成字符串
+		for ( var i=0; i<str.length; i++ ) {
+			aImg[i].src = 'img/' + str.charAt(i) + '.JPG';
+		}
+	
+	}
+};
+//返回两位数
+function toTwo ( n ) {
+	return n < 10 ?  '0' + n : '' + n;
+}
+
+</script>
+<style>
+.txt{
+	line-height:122px;
+	font-size:40px;
+}
+</style>
+</head>
+
+<body>
+<p id="time" style="font-size:60px;"></p>
+
+<img src="img/0.JPG" />
+<img src="img/0.JPG" />
+<span class="txt">时</span>
+<img src="img/0.JPG" />
+<img src="img/0.JPG" />
+<span class="txt">分</span>
+<img src="img/0.JPG" />
+<img src="img/0.JPG" />
+<span class="txt">秒</span>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <script type="text/javascript">
+  window.onload = function(){
+   changeColor();
+  }
+  function changeColor(){
+    var r = parseInt(Math.random() * 255);
+    var g = parseInt(Math.random() * 255);
+    var b = parseInt(Math.random() * 255);
+    console.log(r);
+    //将rgb的颜色值转化为16进制
+    var colorHex = r.toString(16) + g.toString(16) + b.toString(16);
+    console.log(colorHex);
+    document.body.bgColor = "#"+colorHex;
+    window.setTimeout("changeColor()",3000); //设置每三秒执行一次函数
+  }
+  </script>
+ </HEAD>
+
+ <BODY>
+ </BODY>
+</HTML>
